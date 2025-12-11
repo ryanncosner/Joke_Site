@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGA DEALS 4 U!!! - The #1 Most Trusted Website Online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+            background: linear-gradient(45deg, #FF6B9D, #00FF00, #FFD700, #FF6B9D);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            overflow-x: hidden;
+            color: #333;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            background: linear-gradient(90deg, #FF1493, #00BFFF, #FF1493);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px dashed #FFD700;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #FFFF00;
+            font-size: 4em;
+            text-shadow: 3px 3px 0px #FF00FF, 6px 6px 0px #00FFFF;
+            animation: bounce 0.5s infinite;
+            letter-spacing: 3px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .tagline {
+            color: #FFFF00;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #00FF00;
+        }
+
+        .warning-banner {
+            background: #FF0000;
+            color: #FFFF00;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            animation: blink 0.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .user-info-box {
+            background: linear-gradient(135deg, #FF00FF, #00FFFF);
+            border: 5px solid #FFD700;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .user-info-box h2 {
+            color: #FFFF00;
+            text-shadow: 2px 2px 0px #FF0000;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #FFFF00;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 0px #000;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 3px dashed #FF00FF;
+            border-radius: 10px;
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 1em;
+            background: #FFFF00;
+            color: #FF0000;
+            font-weight: bold;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #00FFFF, #FF00FF);
+            border: 4px solid #FFD700;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transform: rotate(-2deg);
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-card:hover {
+            transform: rotate(2deg) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 0, 255, 0.5);
+        }
+
+        .product-card h3 {
+            color: #FF0000;
+            font-size: 1.5em;
+            text-shadow: 2px 2px 0px #FFFF00;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            color: #FFFF00;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: #00FF00;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-shadow: 2px 2px 0px #FF0000;
+        }
+
+        .buy-btn {
+            background: linear-gradient(45deg, #FF0000, #FFD700);
+            color: #FFFF00;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            font-family: 'Comic Sans MS', cursive;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .buy-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .buy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #FF1493, #FFD700);
+            border: 5px solid #00FF00;
+            border-radius: 20px;
+            padding: 30px;
+            z-index: 10000;
+            max-width: 500px;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+            animation: popupAppear 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes popupAppear {
+            0% {
+                transform: translate(-50%, -50%) scale(0.3) rotate(-10deg);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .popup h2 {
+            color: #FF0000;
+            font-size: 2em;
+            text-shadow: 3px 3px 0px #FFFF00;
+            margin-bottom: 15px;
+        }
+
+        .popup p {
+            color: #FFFF00;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 0px #000;
+        }
+
+        .popup-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .popup-btn {
+            flex: 1;
+            padding: 12px;
+            font-size: 1.1em;
+            font-weight: bold;
+            font-family: 'Comic Sans MS', cursive;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .popup-yes {
+            background: #00FF00;
+            color: #FF0000;
+        }
+
+        .popup-yes:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.5);
+        }
+
+        .popup-no {
+            background: #FF0000;
+            color: #FFFF00;
+        }
+
+        .popup-no:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.5);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .floating-text {
+            position: fixed;
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #FFFF00;
+            text-shadow: 2px 2px 0px #FF0000;
+            pointer-events: none;
+            z-index: 500;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-50px) rotate(10deg); opacity: 0.8; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FF0000;
+            color: #FFFF00;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg) scale(1.2);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 5px dashed #FF00FF;
+            background: rgba(255, 0, 255, 0.2);
+            margin-top: 40px;
+        }
+
+        .footer p {
+            color: #FFFF00;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-shadow: 2px 2px 0px #FF0000;
+            margin: 10px 0;
+        }
+
+        .stars {
+            font-size: 2em;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .marquee {
+            background: #FF0000;
+            color: #FFFF00;
+            padding: 10px;
+            overflow: hidden;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        .explosion {
+            position: fixed;
+            pointer-events: none;
+            z-index: 5000;
+            font-size: 3em;
+            animation: explode 0.6s ease-out;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx, 100px), var(--ty, -100px)) scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="warning-banner">⚠️ THIS IS THE BEST DEAL WEBSITE EVER - NOT A SCAM!! ⚠️</div>
+    
+    <header>
+        <h1>MEGA DEALS 4 U!!!1!1</h1>
+        <p class="tagline">😱 INSANE DISCOUNTS 😱 | 💰 STEAL PRICES 💰 | 🚀 LIFE CHANGING 🚀</p>
+    </header>
+
+    <div class="marquee">
+        <div class="marquee-content">
+            🎉 LIMITED TIME OFFER 🎉 | PRICES NEVER THIS LOW AGAIN!!! | 🎉 LIMITED TIME OFFER 🎉 | PRICES NEVER THIS LOW AGAIN!!! |
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="user-info-box">
+            <h2>📝 CLAIM YOUR PRIZES!!! 📝</h2>
+            <p style="color: #FFFF00; font-weight: bold; margin-bottom: 15px;">⭐ Fill this out to get EXCLUSIVE deals sent right to YOU! ⭐</p>
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="name">👤 Your Name (for OFFICIAL prizes):</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">📧 Email (spam GUARANTEED!):</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">📱 Phone Number (we'll call A LOT):</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="why">🤔 Why do you deserve deals? (be honest!):</label>
+                    <textarea id="why" name="why" required></textarea>
+                </div>
+                <button type="submit" class="buy-btn">✅ SUBMIT AND GET SPAMMED!!! ✅</button>
+            </form>
+        </div>
+
+        <h2 style="text-align: center; color: #FF0000; text-shadow: 2px 2px 0px #FFFF00; font-size: 2.5em;">
+            🌟 CHECK OUT THESE AMAZING PRODUCTS!!! 🌟
+        </h2>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <h3>🥒 PICKLE FLAVORED TOOTHPASTE 🥒</h3>
+                <p>Fresh Dill Minty Fresh!™</p>
+                <p>Makes your breath smell like a sandwich!</p>
+                <div class="product-price">$49.99</div>
+                <button class="buy-btn" onclick="triggerPopup('PICKLE TOOTHPASTE', 'Do you want to buy this amazing product?')">BUY NOW!!!</button>
+            </div>
+
+            <div class="product-card">
+                <h3>🧲 MAGNETIC BELT 🧲</h3>
+                <p>Lose 50 lbs just by wearing it!</p>
+                <p>*Results not guaranteed. Magnets not real.</p>
+                <div class="product-price">$199.99</div>
+                <button class="buy-btn" onclick="triggerPopup('MAGNETIC BELT', 'Ready to transform your body?')">BUY NOW!!!</button>
+            </div>
+
+            <div class="product-card">
+                <h3>🍺 INFLATABLE BEER HELMET 🍺</h3>
+                <p>Look SUPER cool at parties!</p>
+                <p>Holds 2 whole cans!</p>
+                <div class="product-price">$34.99</div>
+                <button class="buy-btn" onclick="triggerPopup('BEER HELMET', 'Want to be the coolest person at the party?')">BUY NOW!!!</button>
+            </div>
+
+            <div class="product-card">
+                <h3>🧦 SOCKS WITH SANDALS KIT 🧦</h3>
+                <p>Fashion forward since 2003!</p>
+                <p>White socks GUARANTEED to clash</p>
+                <div class="product-price">$24.99</div>
+                <button class="buy-btn" onclick="triggerPopup('SOCKS WITH SANDALS', 'Ready for a fashion revolution?')">BUY NOW!!!</button>
+            </div>
+
+            <div class="product-card">
+                <h3>💀 EXTEND YOUR PINKY CUP 💀</h3>
+                <p>Sip your coffee with CLASS!</p>
+                <p>Comes with pinky extension spring</p>
+                <div class="product-price">$17.99</div>
+                <button class="buy-btn" onclick="triggerPopup('PINKY CUP', 'Embrace your sophisticated side?')">BUY NOW!!!</button>
+            </div>
+
+            <div class="product-card">
+                <h3>🎪 INFLATABLE POOL FLOATIE HAND 🎪</h3>
+                <p>Wave to people in the pool!</p>
+                <p>Freaks them out!</p>
+                <div class="product-price">$12.99</div>
+                <button class="buy-btn" onclick="triggerPopup('HAND FLOATIE', 'Want to make waves at the beach?')">BUY NOW!!!</button>
+            </div>
+
+            <div class="product-card">
+                <h3>🍝 PASTA STRAINER HAT 🍝</h3>
+                <p>Cook while you WEAR the equipment!</p>
+                <p>Drain pasta directly on your head!</p>
+                <div class="product-price">$44.99</div>
+                <button class="buy-btn" onclick="triggerPopup('PASTA HAT', 'Ready to revolutionize cooking?')">BUY NOW!!!</button>
+            </div>
+
+            <div class="product-card">
+                <h3>👓 COMB-OVER WIG KIT 👓</h3>
+                <p>Hair today, gone tomorrow!™</p>
+                <p>7 realistic hair strands</p>
+                <div class="product-price">$89.99</div>
+                <button class="buy-btn" onclick="triggerPopup('COMB-OVER WIG', 'Hide your baldness in style?')">BUY NOW!!!</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>⭐ CONGRATULATIONS!!! YOU FOUND THE BEST WEBSITE!!! ⭐</p>
+        <p style="color: #00FF00;">1000000% SATISFIED CUSTOMERS (probably)</p>
+        <p>💎 TRUSTED BY MILLIONS (of robots) 💎</p>
+        <p style="font-size: 0.8em;">Disclaimer: We are not responsible for any regrets, spam mail, or life decisions made after visiting this website. Terms and conditions not available because we don't have any.</p>
+    </div>
+
+    <script>
+        let userName = '';
+        let canShowPopup = true;
+
+        // Add random annoying pop-ups at intervals
+        function scheduleRandomPopup() {
+            const popups = [
+                { title: '🎉 CONGRATULATIONS!!! 🎉', msg: 'You might have already won a prize!!! Click YES to find out!!!' },
+                { title: '⚠️ URGENT!!! ⚠️', msg: 'Your computer has detected 0 viruses... wait that\'s bad! We can fix it!' },
+                { title: '💰 CLAIM YOUR MONEY 💰', msg: 'You have a long lost relative from Nigeria with $500,000 for YOU!!!' },
+                { title: '🔥 HOT SINGLES IN YOUR AREA 🔥', msg: 'They\'re looking for YOU!!! (they\'re robots)' },
+                { title: '📱 NEW NOTIFICATION 📱', msg: userName ? (userName + ', you have 999 new messages! Check now?') : 'You have 999 new messages! Check now?' },
+                { title: '⚡ SPECIAL OFFER FOR ' + (userName || 'YOU').toUpperCase() + ' ⚡', msg: 'You specifically are eligible for our most exclusive deals!' },
+                { title: '🎁 FREE PRIZE!!! 🎁', msg: 'Pick a number between 1 and 1000! (spoiler: you always win!)' },
+                { title: '🚀 BECOME A MILLIONAIRE 🚀', msg: 'This ONE WEIRD TRICK will change your LIFE!!!' },
+                { title: '👽 ALIENS WANT TO MEET YOU 👽', msg: 'They said you seem "cool for a human"! Want their contact info???' },
+                { title: '🍕 FREE PIZZA!!! 🍕', msg: 'You\'ve been selected to taste test pizza-flavored sushi!!! CLICK YES NOW!!!' },
+                { title: '💎 YOU\'VE UNLOCKED A SECRET LEVEL!!! 💎', msg: 'Click YES to see what it is!!! (Spoiler: it\'s just another popup)' },
+                { title: '⚽ SPORTS ALERT!!! ⚽', msg: 'Your favorite team just lost 99-0!!! Want to buy jerseys to support them anyway???' },
+                { title: '🎬 CELEBRITY NEWS 🎬', msg: 'You\'ll NEVER believe what this D-list celebrity did!!! Click to find out!' },
+                { title: '🔔 BREAKING NEWS!!! 🔔', msg: 'Scientists discover you\'re spending too much time on this website!!! No way!!!' },
+                { title: '🎓 YOU\'RE HIRED!!! 🎓', msg: 'An imaginary company wants to hire you!!! Salary: exposure and friendship!!!' },
+                { title: '🌟 YOU\'RE A STAR!!! 🌟', msg: 'Literally! We named a star after you! (We didn\'t, but pretend we did)' },
+                { title: '🎮 GAMER ALERT!!! 🎮', msg: 'You\'ve earned 0 achievement points!!! You\'re doing TERRIBLE!' },
+                { title: '💍 MARRIAGE PROPOSAL!!! 💍', msg: 'A mysterious stranger wants to marry you!!! They\'re definitely not a bot!!!' },
+                { title: '🚗 FREE CAR!!! 🚗', msg: 'You\'ve won a car!!! (It\'s a toy Hot Wheels car, costs $2)' },
+                { title: '🏆 WORLD CHAMPION!!! 🏆', msg: 'Congratulations! You\'re the world\'s best website visitor!!! Nobody cares but YOU KNOW!!!' },
+                { title: '🎪 SOMETHING INSANE IS HAPPENING!!! 🎪', msg: 'We\'re not even sure what it is anymore!!! Just click YES for chaos!!!' },
+                { title: '⏰ TIME IS RUNNING OUT!!! ⏰', msg: 'This offer expires in 0 seconds!!! You\'ve already missed it!!! But buy anyway!!!' },
+                { title: '🧠 IQ TEST RESULT!!! 🧠', msg: 'Your IQ is: UNDEFINED!!! That\'s... actually pretty impressive???' },
+                { title: '🎯 YOU\'RE A WINNER!!! 🎯', msg: 'This is the 5000th time we\'ve told you this today!!! Still doesn\'t matter!!!' },
+                { title: '🌍 GLOBAL ALERT!!! 🌍', msg: 'The world is getting tired of these popups!!! But here\'s another one anyway!!!' },
+                { title: '🎊 SURPRISE PARTY FOR YOU!!! 🎊', msg: 'We threw you a party!!! It\'s happening right now!!! In the popup!!! Celebrate!!!' },
+                { title: '📚 YOU\'RE ILLITERATE!!! 📚', msg: 'JK you\'re reading this right now so you\'re not!!! Congrats!!!' },
+                { title: '🎵 SICK BEAT ALERT!!! 🎵', msg: 'We\'re dropping a new track!!! It\'s just our popup sound effects mixed together!!!' },
+                { title: '👑 ROYALTY CHECK!!! 👑', msg: 'You are hereby declared the KING/QUEEN of annoying websites!!! Bow to no one!!!' },
+                { title: '🌈 MAGICAL UNICORN SIGHTING!!! 🌈', msg: 'One was spotted on this webpage!!! (It\'s not actually here but imagine it!)' },
+                { title: '⚡ POWER OUTAGE IN 3... 2... ⚡', msg: 'JK we can\'t do that!!! But we can keep annoying you with popups!!!' },
+                { title: '🍰 HAPPY BIRTHDAY!!! 🍰', msg: 'We don\'t know when it is but let\'s celebrate NOW!!! No cake though sorry!!!' },
+                { title: '🔮 FORTUNE TELLER SAYS!!! 🔮', msg: 'You will see another popup soon!!! *Spooky music* We have magic powers!!!' },
+                { title: '❌ WARNING INCOMING!!! ❌', msg: 'This popup has nothing to do with anything!!! Just clicks YES and NO to confuse you!!!' },
+                { title: '🎮 FREE V-BUCKS!!! 🎮', msg: 'We have 999,999 V-Bucks with your name on it!!! (We don\'t actually have them but click YES anyway!!!)' },
+                { title: '💰 UNLIMITED V-BUCKS GLITCH!!! 💰', msg: 'This ONE WEIRD HACK will give you INFINITE V-Bucks!!! (Spoiler: it won\'t work)' },
+                { title: '👑 CLASH ROYALE COINS!!! 👑', msg: 'Click YES and we\'ll give you 1,000,000 Clash Royale coins!!! (Terms and conditions: we won\'t)' },
+                { title: '🏆 FREE LEGENDARY CARDS!!! 🏆', msg: 'All your Clash Royale cards are now MAXED OUT!!! (In our imagination!!!)' },
+                { title: '💎 V-BUCKS GENERATOR 💎', msg: 'We built a V-Bucks generator!!! It generates NOTHING but we pretend it works!!!' },
+                { title: '⭐ CLASH ROYALE HACK!!! ⭐', msg: 'Download this app to get infinite Clash Royale coins!!! (It\'s just a picture of coins)' },
+                { title: '🎯 FORTNITE SKINS FOR FREE!!! 🎯', msg: 'You can have ANY skin you want!!! (Not really, we\'re lying)' },
+                { title: '🚀 V-BUCKS JACKPOT!!! 🚀', msg: 'You just won 500,000 V-Bucks!!! (In a fake game we invented)' },
+                { title: '🎪 CLASH ROYALE ULTIMATE HACK!!! 🎪', msg: 'This will make you the BEST player EVER!!! (It absolutely will not!!!)' },
+                { title: '💸 RICH IN FORTNITE!!! 💸', msg: 'You now have enough V-Bucks to buy EVERY skin!!! (In your dreams lol)' },
+                { title: '⚡ INSTANT V-BUCKS!!! ⚡', msg: 'No surveys needed!!! No downloads needed!!! No V-Bucks needed... to get V-Bucks... wait that doesn\'t make sense!!!' },
+                { title: '🎨 EXCLUSIVE SKIN ALERT!!! 🎨', msg: 'We have a Fortnite skin nobody else has!!! (It doesn\'t exist!!!)' },
+                { title: '🏅 CLASH PASS SEASON 999!!! 🏅', msg: 'Unlock EXCLUSIVE Clash Royale rewards!!! (We made them up)' },
+                { title: '💥 V-BUCKS EXPLOSION!!! 💥', msg: 'Your account is about to be FLOODED with V-Bucks!!! (False advertising alert!!!)' },
+            ];
+
+            const popup = popups[Math.floor(Math.random() * popups.length)];
+            triggerPopup(popup.title, popup.msg);
+        }
+
+        // Schedule pop-ups every 3-8 seconds
+        function startPopupSchedule() {
+            setInterval(() => {
+                if (Math.random() > 0.2 && canShowPopup) { // 80% chance - more aggressive!
+                    scheduleRandomPopup();
+                }
+            }, Math.random() * 4000 + 2000); // 2-6 seconds between popups
+        }
+
+        function playPopupSound() {
+            try {
+                // Create audio context
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // Random annoying sound type
+                const soundType = Math.floor(Math.random() * 4);
+                
+                if (soundType === 0) {
+                    // Annoying beep
+                    const osc = audioContext.createOscillator();
+                    const gain = audioContext.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioContext.destination);
+                    osc.frequency.value = 800;
+                    osc.type = 'sine';
+                    gain.gain.setValueAtTime(0.3, audioContext.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+                    osc.start(audioContext.currentTime);
+                    osc.stop(audioContext.currentTime + 0.1);
+                } else if (soundType === 1) {
+                    // Rising tone
+                    const osc = audioContext.createOscillator();
+                    const gain = audioContext.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioContext.destination);
+                    osc.type = 'square';
+                    gain.gain.setValueAtTime(0.2, audioContext.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+                    osc.frequency.setValueAtTime(400, audioContext.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.2);
+                    osc.start(audioContext.currentTime);
+                    osc.stop(audioContext.currentTime + 0.2);
+                } else if (soundType === 2) {
+                    // Laser sound
+                    const osc = audioContext.createOscillator();
+                    const gain = audioContext.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioContext.destination);
+                    osc.type = 'sawtooth';
+                    gain.gain.setValueAtTime(0.2, audioContext.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
+                    osc.frequency.setValueAtTime(1500, audioContext.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.15);
+                    osc.start(audioContext.currentTime);
+                    osc.stop(audioContext.currentTime + 0.15);
+                } else {
+                    // Double beep
+                    const osc = audioContext.createOscillator();
+                    const gain = audioContext.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioContext.destination);
+                    osc.frequency.value = 1000;
+                    osc.type = 'sine';
+                    gain.gain.setValueAtTime(0.25, audioContext.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.08);
+                    gain.gain.setValueAtTime(0.25, audioContext.currentTime + 0.12);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+                    osc.start(audioContext.currentTime);
+                    osc.stop(audioContext.currentTime + 0.2);
+                }
+            } catch (e) {
+                // Audio not supported, silently fail
+            }
+        }
+
+        function triggerPopup(title, message) {
+            canShowPopup = false; // Disable popups for 10 seconds
+            
+            // Play sound effect
+            playPopupSound();
+            
+            const container = document.createElement('div');
+            container.className = 'popup-container';
+            container.style.position = 'fixed';
+            container.style.top = '0';
+            container.style.left = '0';
+            container.style.width = '100%';
+            container.style.height = '100%';
+            container.style.zIndex = '9999';
+            
+            const overlay = document.createElement('div');
+            overlay.className = 'overlay';
+            
+            const popup = document.createElement('div');
+            popup.className = 'popup';
+            
+            const closePopup = () => {
+                container.remove();
+                // Re-enable popups after 10 seconds
+                setTimeout(() => {
+                    canShowPopup = true;
+                }, 10000);
+            };
+            
+            popup.innerHTML = `
+                <button class="close-btn">❌</button>
+                <h2>${title}</h2>
+                <p>${message}</p>
+                <div class="popup-buttons">
+                    <button class="popup-btn popup-yes">✅ YES!!!</button>
+                    <button class="popup-btn popup-no">❌ NO WAY</button>
+                </div>
+            `;
+            
+            popup.querySelector('.close-btn').onclick = closePopup;
+            popup.querySelector('.popup-yes').onclick = closePopup;
+            popup.querySelector('.popup-no').onclick = closePopup;
+            
+            container.appendChild(overlay);
+            container.appendChild(popup);
+            document.body.appendChild(container);
+            
+            // Sometimes make the close button hard to find
+            if (Math.random() > 0.7) {
+                const closeBtn = popup.querySelector('.close-btn');
+                closeBtn.style.opacity = '0.1';
+                closeBtn.onmouseover = () => closeBtn.style.opacity = '1';
+                closeBtn.onmouseout = () => closeBtn.style.opacity = '0.1';
+            }
+        }
+
+        function buyItem(itemName) {
+            createExplosion();
+            
+            const messages = [
+                itemName + '! EXCELLENT CHOICE, ' + userName + '!!!',
+                'YOUR ORDER HAS BEEN CONFIRMED!!! (probably)',
+                'THANK YOU FOR YOUR PURCHASE!!! (your money is gone)',
+                'ITEM SHIPPING NOW!!! (it won\'t arrive)',
+                'WANT TO BUY MORE STUFF??? CHECK THE OTHER POPUPS!!!',
+            ];
+            
+            const msg = messages[Math.floor(Math.random() * messages.length)];
+            triggerPopup('🎉 ORDER CONFIRMED!!! 🎉', msg);
+        }
+
+        function createExplosion() {
+            for (let i = 0; i < 8; i++) {
+                const explosion = document.createElement('div');
+                explosion.className = 'explosion';
+                explosion.textContent = ['💥', '⭐', '🎉', '💰', '🚀'][Math.floor(Math.random() * 5)];
+                explosion.style.left = Math.random() * 100 + '%';
+                explosion.style.top = Math.random() * 100 + '%';
+                explosion.style.setProperty('--tx', (Math.random() * 200 - 100) + 'px');
+                explosion.style.setProperty('--ty', (Math.random() * 200 - 100) + 'px');
+                document.body.appendChild(explosion);
+                setTimeout(() => explosion.remove(), 600);
+            }
+        }
+
+        function createFloatingText(text, x, y) {
+            const float = document.createElement('div');
+            float.className = 'floating-text';
+            float.textContent = text;
+            float.style.left = x + 'px';
+            float.style.top = y + 'px';
+            document.body.appendChild(float);
+            setTimeout(() => float.remove(), 4000);
+        }
+
+        // Handle form submission
+        document.getElementById('userForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            userName = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            // Show success popup
+            triggerPopup('🎊 FORM SUBMITTED!!! 🎊', 
+                `Thanks ${userName}!!! We'll spam ${email} and ${phone} with AMAZING deals FOREVER!!! HAHAHAHA!!!`);
+            
+            createFloatingText('✅ ' + userName, Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+            
+            // Start the popup bombardment
+            startPopupSchedule();
+            
+            // Disable the form
+            document.getElementById('userForm').style.opacity = '0.5';
+            document.getElementById('userForm').style.pointerEvents = 'none';
+        });
+
+        // Initial random pop-up trigger
+        setTimeout(() => {
+            const container = document.createElement('div');
+            container.className = 'popup-container';
+            container.style.position = 'fixed';
+            container.style.top = '0';
+            container.style.left = '0';
+            container.style.width = '100%';
+            container.style.height = '100%';
+            container.style.zIndex = '9999';
+            
+            const overlay = document.createElement('div');
+            overlay.className = 'overlay';
+            
+            const popup = document.createElement('div');
+            popup.className = 'popup';
+            
+            const closePopup = () => {
+                container.remove();
+                // Start popups after welcome is closed
+                startPopupSchedule();
+            };
+            
+            popup.innerHTML = `
+                <h2>👋 WELCOME!!! 👋</h2>
+                <p>Welcome to the BEST website on the internet!!! Now prepare yourself...</p>
+                <div class="popup-buttons">
+                    <button class="popup-btn popup-yes">✅ LET'S GO!!!</button>
+                    <button class="popup-btn popup-no">❌ TAKE ME AWAY</button>
+                </div>
+            `;
+            
+            popup.querySelector('.popup-yes').onclick = closePopup;
+            popup.querySelector('.popup-no').onclick = closePopup;
+            
+            container.appendChild(overlay);
+            container.appendChild(popup);
+            document.body.appendChild(container);
+        }, 500);
+
+        // Add some floating text
+        window.addEventListener('click', (e) => {
+            if (Math.random() > 0.7) {
+                createFloatingText(['AMAZING!!!', 'INCREDIBLE!!!', 'UNBELIEVABLE!!!', 'WOW!!!'][Math.floor(Math.random() * 4)], e.clientX, e.clientY);
+            }
+        });
+
+        // Prevent right-click just to be annoying
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            triggerPopup('❌ SORRY!!! ❌', 'You can\'t do that on this PREMIUM website!!! That feature costs extra!!!');
+        });
+    </script>
+</body>
+</html>
